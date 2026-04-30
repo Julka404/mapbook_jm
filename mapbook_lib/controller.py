@@ -12,9 +12,20 @@ def add_user(users_data: list) -> None:
     users_data.append({'username': name, 'location': location, 'posts': posts,
                        'usermessage': usermessage}, )
 
+
 def remove_users(users_data: list) -> None:
     name = input('Podaj imie uzytkownika do usuniecie: ')
 
     for user in users_data:
         if user['username'] == name:
             users_data.remove(user)
+
+
+def update_users(users_data: list) -> None:
+    name = input('Podaj imie uzytkownika do zmiany: ')
+
+    for user in users_data:
+        if user['username'] == name:
+            user['username'] = input('Podaj nowe imie: ')
+            user['location'] = input('Podaj nową lokalizację: ')
+            user['posts'] = int(input('podaj liczbe postów: '))
