@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_fe2d988122c4847f06c83b362d8fe817 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_fe2d988122c4847f06c83b362d8fe817" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_fe2d988122c4847f06c83b362d8fe817 = L.map(
+                "map_fe2d988122c4847f06c83b362d8fe817",
+                {
+                    center: [52.0, 19.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_c8455ee0e373a654794a81d78d6325c9 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_c8455ee0e373a654794a81d78d6325c9.addTo(map_fe2d988122c4847f06c83b362d8fe817);
+        
+    
+            var marker_095ebfd9894dc125db230a68c849bc29 = L.marker(
+                [51.7592, 19.456],
+                {
+}
+            ).addTo(map_fe2d988122c4847f06c83b362d8fe817);
+        
+    
+            var icon_10daad5ea196e035ae0503044badf391 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "cloud",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5ad9e07e7a264810cc2a7a6be9dbeb37 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_79b6f645cf81d657ac4bdc94916a53e6 = $(`<div id="html_79b6f645cf81d657ac4bdc94916a53e6" style="width: 100.0%; height: 100.0%;">oliwia - Łódź</div>`)[0];
+                popup_5ad9e07e7a264810cc2a7a6be9dbeb37.setContent(html_79b6f645cf81d657ac4bdc94916a53e6);
+            
+        
+
+        marker_095ebfd9894dc125db230a68c849bc29.bindPopup(popup_5ad9e07e7a264810cc2a7a6be9dbeb37)
+        ;
+
+        
+    
+    
+            marker_095ebfd9894dc125db230a68c849bc29.bindTooltip(
+                `<div>
+                     Kliknij mnie
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_095ebfd9894dc125db230a68c849bc29.setIcon(icon_10daad5ea196e035ae0503044badf391);
+            
+    
+            var marker_192a7f42a6d3a7ba1cdaaeaa3f36a55e = L.marker(
+                [53.6967, 19.9649],
+                {
+}
+            ).addTo(map_fe2d988122c4847f06c83b362d8fe817);
+        
+    
+            var icon_a6dafd572a79aacf62ee6365f5ba85d4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "cloud",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_032bc130cf32608c38912336d90c63b5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_95b6e7a15f4fad4c04ad621b7e2c1c4b = $(`<div id="html_95b6e7a15f4fad4c04ad621b7e2c1c4b" style="width: 100.0%; height: 100.0%;">paweł - Ostróda</div>`)[0];
+                popup_032bc130cf32608c38912336d90c63b5.setContent(html_95b6e7a15f4fad4c04ad621b7e2c1c4b);
+            
+        
+
+        marker_192a7f42a6d3a7ba1cdaaeaa3f36a55e.bindPopup(popup_032bc130cf32608c38912336d90c63b5)
+        ;
+
+        
+    
+    
+            marker_192a7f42a6d3a7ba1cdaaeaa3f36a55e.bindTooltip(
+                `<div>
+                     Kliknij mnie
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_192a7f42a6d3a7ba1cdaaeaa3f36a55e.setIcon(icon_a6dafd572a79aacf62ee6365f5ba85d4);
+            
+    
+            var marker_363700ca60585d008efe9e8599aedf17 = L.marker(
+                [51.4027, 21.1471],
+                {
+}
+            ).addTo(map_fe2d988122c4847f06c83b362d8fe817);
+        
+    
+            var icon_3d6cc2492ffdfe522a41bcf36d9b5852 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "cloud",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d3de4c02e254848e905a55b134b84fe2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b83294a459737227ffa211c4743b5e05 = $(`<div id="html_b83294a459737227ffa211c4743b5e05" style="width: 100.0%; height: 100.0%;">eliza - Radom</div>`)[0];
+                popup_d3de4c02e254848e905a55b134b84fe2.setContent(html_b83294a459737227ffa211c4743b5e05);
+            
+        
+
+        marker_363700ca60585d008efe9e8599aedf17.bindPopup(popup_d3de4c02e254848e905a55b134b84fe2)
+        ;
+
+        
+    
+    
+            marker_363700ca60585d008efe9e8599aedf17.bindTooltip(
+                `<div>
+                     Kliknij mnie
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_363700ca60585d008efe9e8599aedf17.setIcon(icon_3d6cc2492ffdfe522a41bcf36d9b5852);
+            
+    
+            var marker_9cc652cb43e8468de6874e05ced3e751 = L.marker(
+                [51.5591, 21.8483],
+                {
+}
+            ).addTo(map_fe2d988122c4847f06c83b362d8fe817);
+        
+    
+            var icon_cd2bb84ef41e494a1e34d41c2c6ce001 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "cloud",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_71c10f48e4c92d526d72a56f311ae734 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e3956962bd19468261e4db8766a63619 = $(`<div id="html_e3956962bd19468261e4db8766a63619" style="width: 100.0%; height: 100.0%;">filip - Dęblin</div>`)[0];
+                popup_71c10f48e4c92d526d72a56f311ae734.setContent(html_e3956962bd19468261e4db8766a63619);
+            
+        
+
+        marker_9cc652cb43e8468de6874e05ced3e751.bindPopup(popup_71c10f48e4c92d526d72a56f311ae734)
+        ;
+
+        
+    
+    
+            marker_9cc652cb43e8468de6874e05ced3e751.bindTooltip(
+                `<div>
+                     Kliknij mnie
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9cc652cb43e8468de6874e05ced3e751.setIcon(icon_cd2bb84ef41e494a1e34d41c2c6ce001);
+            
+</script>
+</html>

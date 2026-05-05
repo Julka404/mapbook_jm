@@ -1,7 +1,4 @@
-import requests
-from bs4 import BeautifulSoup
 import folium
-from urllib.parse import quote
 
 
 def read_data(users_data: list) -> None:
@@ -34,7 +31,7 @@ def remove_user(users_data: list) -> None:
     name = input("Podaj imię użytkownika do usunięcia: ")
 
     for user in users_data:
-        if user["username"] == name:
+        if user["username"].lower() == name.lower():
             users_data.remove(user)
             print("Usunięto użytkownika.")
             return
@@ -46,7 +43,7 @@ def update_user(users_data: list) -> None:
     name = input("Podaj imię użytkownika do zmiany: ")
 
     for user in users_data:
-        if user["username"] == name:
+        if user["username"].lower() == name.lower():
             user["username"] = input("Podaj nowe imię: ")
             user["location"] = input("Podaj nową lokalizację: ")
             user["posts"] = int(input("Podaj liczbę postów: "))
@@ -57,48 +54,42 @@ def update_user(users_data: list) -> None:
     print("Nie znaleziono użytkownika.")
 
 
-def get_coordinates(location: str) -> list:
-    location_url = quote(location.replace(" ", "_"))
-    url = f"https://pl.wikipedia.org/wiki/{location_url}"
-
-    headers = {
-        "User-Agent": "Mozilla/5.0"
+def get_coordinates(location: str) -> list | None:
+    coordinates = {
+        "łódź": [51.7592, 19.4560],
+        "lodz": [51.7592, 19.4560],
+        "ostróda": [53.6967, 19.9649],
+        "ostroda": [53.6967, 19.9649],
+        "radom": [51.4027, 21.1471],
+        "dęblin": [51.5591, 21.8483],
+        "deblin": [51.5591, 21.8483],
+        "lublin": [51.2465, 22.5684],
+        "warszawa": [52.2297, 21.0122],
+        "gdynia": [54.5189, 18.5305],
+        "konin": [52.2230, 18.2511],
     }
 
-    response = requests.get(url, headers=headers)
-    response.raise_for_status()
+    location_key = location.strip().lower()
 
-    response_html = BeautifulSoup(response.text, "html.parser")
-
-    latitude = response_html.select(".latitude")
-    longitude = response_html.select(".longitude")
-
-    if len(latitude) < 1 or len(longitude) < 1:
-        raise ValueError(f"Nie znaleziono współrzędnych dla lokalizacji: {location}")
-
-    latitude_value = float(latitude[0].text.replace(",", "."))
-    longitude_value = float(longitude[0].text.replace(",", "."))
-
-    return [latitude_value, longitude_value]
+    return coordinates.get(location_key)
 
 
 def get_mapa(users_data: list) -> None:
-    mapa = folium.Map(location=[52, 19], zoom_start=6)
+    mapa = folium.Map(location=[52.0, 19.0], zoom_start=6)
 
     for user in users_data:
-        try:
-            coordinates = get_coordinates(user["location"])
+        coordinates = get_coordinates(user["location"])
 
-            folium.Marker(
-                location=coordinates,
-                tooltip="Kliknij mnie",
-                popup=user["username"],
-                icon=folium.Icon(icon="cloud"),
-            ).add_to(mapa)
+        if coordinates is None:
+            print(f"Brak współrzędnych dla miejscowości: {user['location']}")
+            continue
 
-        except Exception as error:
-            print(f"Nie udało się pobrać współrzędnych dla: {user['location']}")
-            print(f"Błąd: {error}")
+        folium.Marker(
+            location=coordinates,
+            tooltip="Kliknij mnie",
+            popup=f"{user['username']} - {user['location']}",
+            icon=folium.Icon(icon="cloud"),
+        ).add_to(mapa)
 
     mapa.save("mapa.html")
     print("Mapa została zapisana jako mapa.html")
